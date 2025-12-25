@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cardapio.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="text-center text-marrom mt-4 mb-3">
+  <h1 class="fw-bold mb-2">Nosso cardápio</h1>
+  <p class="lead">
+    Doces preparados sob encomenda, com todo cuidado da LJ Doces. 💛
+  </p>
+</section>
+
+{# BLOCO: cardápios em imagem dentro de um “quadro” #}
+<section class="cardapio-galeria text-marrom mb-5">
+  <h2 class="h4 text-center mb-3">
+    Veja também nossos cardápios em imagem
+  </h2>
+  <p class="text-center cardapio-galeria-sub mb-4">
+    Aqui você encontra os sabores, combinações e valores sugeridos.  
+    Para encomendas especiais, é só falar pelo WhatsApp.
+  </p>
+
+  <div class="row g-4 justify-content-center">
+    <div class="col-12 col-md-6">
+      <figure class="cardapio-fig">
+        <img
+          src="{{ url_for('static', filename='img/cardapio_doces_1.jpg') }}"
+          alt="Cardápio de docinhos LJ Doces - sabores tradicionais"
+          class="img-fluid cardapio-img"
+        >
+        <figcaption class="cardapio-legenda">
+          Docinhos tradicionais – unidade, 50 e 100 unidades.
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="col-12 col-md-6">
+      <figure class="cardapio-fig">
+        <img
+          src="{{ url_for('static', filename='img/cardapio_doces_2.jpg') }}"
+          alt="Cardápio de docinhos LJ Doces - sabores especiais"
+          class="img-fluid cardapio-img"
+        >
+        <figcaption class="cardapio-legenda">
+          Sabores especiais para montar sua mesa de doces.
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="col-12 col-md-10 col-lg-8">
+      <figure class="cardapio-fig cardapio-fig--full">
+        <img
+          src="{{ url_for('static', filename='img/cardapio_sobremesas.jpg') }}"
+          alt="Cardápio de sobremesas e bolos no pote LJ Doces"
+          class="img-fluid cardapio-img"
+        >
+        <figcaption class="cardapio-legenda">
+          Sobremesas e bolos no pote – opções individuais e para compartilhar.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+{# BLOCO: Empadas & salgados #}
+<section class="mt-3 pt-2 pb-1 cardapio-empadas-wrapper">
+  <h2 class="text-center mb-4 text-marrom">Empadas & salgados</h2>
+
+  <div class="card empada-card mx-auto shadow-sm">
+    <img
+      src="{{ url_for('static', filename='img/empadas.jpg') }}"
+      alt="Empadas artesanais LJ Doces"
+      class="empada-img-top"
+    >
+
+    <div class="card-body">
+      <h3 class="empada-titulo">Empadas artesanais</h3>
+
+      <p>
+        Empadas preparadas uma a uma, perfeitas para festas, lanches e encomendas.
+      </p>
+
+      <ul class="empada-lista">
+        <li>Sabores a combinar (ex.: frango, frango com catupiry, queijo...)</li>
+        <li>Encomendas sob pedido, quantidade mínima a combinar.</li>
+      </ul>
+
+      <p class="empada-destaque">
+        Consulte sabores e valores atualizados pelo WhatsApp. 💬
+      </p>
+    </div>
+  </div>
+</section>
+
+{# CTA final da página #}
+<section class="cardapio-cta-final text-center text-marrom pb-3">
+  <h2 class="h5 mb-3">Ficou com vontade?</h2>
+  <p class="mb-3">
+    Veja o cardápio completo com detalhes ou já faça seu pedido pelo formulário.
+  </p>
+  <div class="d-flex flex-wrap justify-content-center gap-3">
+    <a href="{{ url_for('novo_pedido') }}" class="btn btn-marrom btn-lg">
+      Fazer pedido agora
+    </a>
+    <a href="{{ url_for('home') }}" class="btn btn-outline-marrom btn-lg">
+      Voltar para a página inicial
+    </a>
+  </div>
+</section>
+{% endblock %}

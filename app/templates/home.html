@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="hero text-center text-marrom">
+  <div class="row align-items-center">
+    <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+      <img
+        src="{{ url_for('static', filename='img/logo_ljdoces_contatos.jpg') }}"
+        alt="Logo LJ Doces"
+        class="img-fluid logo-img mx-auto d-block mb-4"
+      >
+    </div>
+
+    <div class="col-12 col-lg-6">
+      <h1 class="fw-bold mb-3">Brigadeiros que derretem corações</h1>
+      <p class="lead mb-4">
+        LJ Doces – encomendas de doces e brigadeiros para festas, eventos e datas especiais.
+      </p>
+
+      <div class="d-flex flex-wrap justify-content-center gap-3 hero-botoes">
+        <a href="{{ url_for('cardapio') }}" class="btn btn-marrom btn-lg">
+          Ver cardápio
+        </a>
+
+        <a href="{{ url_for('novo_pedido') }}" class="btn btn-outline-marrom btn-lg">
+          Fazer pedido
+        </a>
+
+        <a
+          href="https://www.ifood.com.br/delivery/sao-paulo-sp/ljdoces-parque-sao-lucas/73cb7a63-8fbd-4320-a419-f48b501e7889"
+          class="btn btn-ifood btn-lg"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ver no iFood
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mt-2 pt-4 pb-5 text-marrom text-center">
+  <h2 class="mb-3">Sobre a LJ Doces</h2>
+  <p class="lead mb-3">
+    A LJ Doces é uma doceria artesanal, especializada em brigadeiros, bolos no pote,
+    sobremesas e empadas preparadas sob encomenda.
+  </p>
+  <p class="mb-0">
+    Tudo é feito com carinho, ingredientes selecionados e aquele toque de receita de família,
+    pensado para festas, eventos, lanches e presentes especiais. 🎂✨
+  </p>
+</section>
+
+<section class="pb-5 text-marrom">
+  <h2 class="text-center mb-4">Por que encomendar com a LJ Doces?</h2>
+
+  <div class="row g-4 mt-3">
+    <div class="col-12 col-md-4">
+      <div class="card info-card info-card--artesanal h-100">
+        <h3>🍫 Doces artesanais</h3>
+        <p>Produção caseira, em pequena escala, com cuidado em cada unidade.</p>
+        <p>Brigadeiros, bolos no pote, docinhos e sobremesas.</p>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <div class="card info-card info-card--festas h-100">
+        <h3>🎉 Encomendas para festas</h3>
+        <p>Opções para aniversário, chá de bebê, confraternização, empresas e datas especiais.</p>
+        <p>Quantidade combinada com você.</p>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <div class="card info-card info-card--whatsapp h-100">
+        <h3>💬 Atendimento pelo WhatsApp</h3>
+        <p>Você faz o pedido pelo WhatsApp, tira dúvidas e combina sabores e datas direto com a doceria.</p>
+        <p>Resposta rápida e atendimento próximo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pb-5 text-marrom home-passo-final">
+  <h2 class="text-center mb-4">Como fazer seu pedido</h2>
+
+  <div class="row g-4 mt-3">
+    <div class="col-12 col-md-4">
+      <div class="card howto-card howto-card--cardapio h-100">
+        <h3>Veja o cardápio</h3>
+        <p>Acesse o cardápio completo com doces, sobremesas e empadas.</p>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <div class="card howto-card howto-card--formulario h-100">
+        <h3>Preencha o formulário</h3>
+        <p>Informe nome, data, produto, quantidade e observações.</p>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <div class="card howto-card howto-card--whatsapp h-100">
+        <h3>Confirme pelo WhatsApp</h3>
+        <p>O site monta o texto e abre o WhatsApp da LJ Doces pra você revisar e enviar.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="passo-botoes">
+    <a href="{{ url_for('cardapio') }}" class="btn btn-marrom btn-lg">
+      Cardápio completo
+    </a>
+    <a href="{{ url_for('novo_pedido') }}" class="btn btn-outline-marrom btn-lg">
+      Fazer pedido agora
+    </a>
+  </div>
+</section>
+{% endblock %}

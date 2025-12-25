@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pedido.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="pedido-wrapper text-marrom">
+
+  <h1 class="text-center fw-bold mb-2 pedido-titulo">
+    Fazer pedido
+  </h1>
+
+  <p class="text-center text-muted mb-4 pedido-subtitulo">
+    Preencha os dados que a LJ Doces monta o pedido e abre o WhatsApp pra você confirmar. 🍬
+  </p>
+
+  <div class="card card-form pedido-card mx-auto">
+    <form method="post" class="pedido-form">
+
+        <div class="mb-3">
+          <label for="nome_cliente" class="form-label">Nome</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nome_cliente"
+            name="nome_cliente"
+            required
+          >
+        </div>
+
+        <div class="mb-3">
+          <label for="whatsapp" class="form-label">WhatsApp</label>
+          <input
+            type="text"
+            class="form-control"
+            id="whatsapp"
+            name="whatsapp"
+            placeholder="(11) 99999-9999"
+            required
+          >
+        </div>
+
+        <div class="mb-3">
+          <label for="data_desejada" class="form-label">Data desejada da entrega</label>
+          <input
+            type="date"
+            class="form-control"
+            id="data_desejada"
+            name="data_desejada"
+            required
+          >
+        </div>
+
+        <div class="mb-3">
+          <label for="produto_id" class="form-label">Produto</label>
+          <select
+            class="form-select"
+            id="produto_id"
+            name="produto_id"
+            required
+          >
+            <option value="">Selecione um doce</option>
+            {% for produto in produtos %}
+              <option value="{{ produto.id }}">
+                {{ produto.nome }} – R$ {{ "%.2f"|format(produto.preco_venda) }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="quantidade" class="form-label">Quantidade</label>
+          <input
+            type="number"
+            min="1"
+            value="1"
+            class="form-control"
+            id="quantidade"
+            name="quantidade"
+            required
+          >
+        </div>
+
+        <div class="mb-3">
+          <label for="observacoes" class="form-label">Observações</label>
+          <textarea
+            class="form-control"
+            id="observacoes"
+            name="observacoes"
+            rows="3"
+            placeholder="Sabores, tema da festa, restrições (ex.: sem lactose), etc."
+          ></textarea>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mt-4 pedido-botoes">
+          <a href="{{ url_for('home') }}" class="btn btn-outline-marrom">
+            Voltar
+          </a>
+          <button type="submit" class="btn btn-marrom">
+            Enviar pedido
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

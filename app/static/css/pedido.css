@@ -1,0 +1,147 @@
+/* ============ PÁGINA /pedido/novo ============ */
+
+.pedido-wrapper {
+  max-width: 760px;
+  margin: 0 auto 2.2rem;
+  padding-top: 2.5rem;
+}
+
+/* título + subtítulo */
+.pedido-titulo {
+  font-size: 2.1rem;
+}
+
+.pedido-subtitulo {
+  font-size: 0.98rem;
+  max-width: 540px;
+  margin: 0 auto 2.2rem;
+}
+
+/* card do formulário */
+.pedido-card {
+  border-radius: 18px;
+  padding: 2.2rem 2.4rem;
+  box-shadow: 0 12px 30px rgba(90, 46, 20, 0.12);
+  border: 1px solid #f1d9b8;
+}
+
+.pedido-card-resumo {
+  max-width: 900px;
+  margin: 0 auto;          /* centraliza, mas sem empurrar pra cima/baixo */
+  border-radius: 18px;
+  border: 1px solid #f1d9b8;
+  background-color: #fffaf4;
+  padding: 1.75rem 2.25rem 1.9rem;
+}
+
+/* campos um pouco mais “respirados” */
+.pedido-form .mb-3 {
+  margin-bottom: 1.05rem !important;
+}
+
+/* labels obrigatórios com asterisco (se quiser marcar alguns com .required) */
+.pedido-form label.required::after {
+  content: " *";
+  color: #c0392b;
+  font-weight: 600;
+}
+
+/* campo de observações um pouco maior */
+.pedido-form textarea {
+  min-height: 120px;
+}
+
+/* área dos botões no rodapé do card */
+.pedido-botoes {
+  gap: 1rem;
+}
+
+@media (max-width: 575.98px) {
+  .pedido-wrapper {
+    padding-top: 1.6rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .pedido-card {
+    padding: 1.6rem 1.4rem;
+  }
+
+  .pedido-botoes {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .pedido-botoes .btn {
+    width: 100%;
+  }
+}
+
+/* ============ CONFIRMAÇÃO DO PEDIDO (/pedido/confirmacao) ============ */
+
+/* Card do resumo */
+.pedido-resumo {
+  border-radius: 22px;
+  border: 1px solid #f1d9b8;
+  background-color: #fffdf7;
+  box-shadow: 0 10px 25px rgba(120, 64, 25, 0.08);
+}
+
+/* Títulos dentro do card */
+.pedido-resumo h2 {
+  color: #7a3c1a;
+  font-weight: 700;
+}
+
+/* Textos do resumo */
+.pedido-resumo p {
+  margin-bottom: 0.45rem;
+}
+
+/* Texto menor do parágrafo final */
+.pedido-resumo .pequeno-texto {
+  font-size: 0.92rem;
+  color: #7b5a43;
+}
+
+/* Área dos botões no rodapé do card */
+.pedido-resumo-botoes {
+  padding: 0.9rem 1.8rem 1.2rem;
+  border-top: 1px solid #f1d9b8;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: space-between; /* voltar fica à esquerda, zap à direita */
+  align-items: center;
+}
+
+/* Botão verde estilo WhatsApp */
+.btn-whatsapp {
+  background-color: #25d366;
+  border-color: #1ebe57;
+  color: #fff;
+  font-weight: 600;
+}
+
+.btn-whatsapp:hover,
+.btn-whatsapp:focus {
+  background-color: #1ebe57;
+  border-color: #189f4a;
+  color: #fff;
+}
+
+/* Em telas pequenas, botões um embaixo do outro se precisar */
+@media (max-width: 575.98px) {
+  .pedido-resumo-botoes {
+    justify-content: center;
+  }
+
+  .pedido-resumo-botoes .btn {
+    width: 100%;
+  }
+}
+
+/* Wrapper da página de confirmação – controla o espaço vertical */
+.pedido-confirmacao-page {
+  max-width: 960px;
+  margin: 3.5rem auto 3.2rem;  /* mais espaço em cima e embaixo */
+}

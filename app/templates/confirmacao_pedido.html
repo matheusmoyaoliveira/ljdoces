@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pedido.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="pedido-confirmacao-page text-marrom">
+  <h1 class="text-center fw-bold mb-4">Pedido registrado!</h1>
+
+  <div class="card pedido-card-resumo shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Resumo do pedido</h2>
+
+      <p><strong>Cliente:</strong> {{ pedido.nome_cliente }}</p>
+      <p><strong>WhatsApp do cliente:</strong> {{ pedido.whatsapp }}</p>
+      <p><strong>Data desejada:</strong> {{ data_desejada_br }}</p>
+      <p><strong>Produto:</strong> {{ produto.nome }}</p>
+      <p><strong>Quantidade:</strong> {{ item.quantidade }}</p>
+
+      {% if pedido.observacoes %}
+      <p><strong>Observações:</strong> {{ pedido.observacoes }}</p>
+      {% else %}
+      <p><strong>Observações:</strong> —</p>
+      {% endif %}
+
+      <hr>
+
+      <p class="pequeno-texto mb-0">
+        Agora é só clicar no botão abaixo para enviar esse pedido
+        diretamente para o WhatsApp da LJ Doces.
+      </p>
+    </div>
+
+    <div class="pedido-resumo-botoes">
+      <a href="{{ url_for('home') }}" class="btn btn-outline-marrom">
+        Voltar ao início
+      </a>
+      <a href="{{ link_whatsapp }}" target="_blank"
+         rel="noopener noreferrer"
+         class="btn btn-whatsapp">
+        Enviar no WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

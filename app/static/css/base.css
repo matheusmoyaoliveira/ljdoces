@@ -1,0 +1,161 @@
+/* ===========================
+   PALETA / VARIÁVEIS GLOBAIS
+   =========================== */
+
+:root {
+  --marrom-escuro: #5b2b16;
+  --marrom-medio:  #8a4b2a;
+  --bege-claro:    #fbe9d5;
+}
+
+/* ===========================
+   LAYOUT GERAL
+   =========================== */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  padding-top: 60px;              /* espaço pra navbar fixa */
+  background-color: var(--bege-claro);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* Utilitários de cor (usa nas classes do HTML) */
+.bg-marrom {
+  background-color: var(--marrom-escuro);
+}
+
+.bg-bege-claro {
+  background-color: var(--bege-claro);
+}
+
+.text-marrom {
+  color: var(--marrom-escuro);
+}
+
+/* ===========================
+   NAVBAR
+   =========================== */
+
+.navbar {
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+
+.navbar-brand {
+  margin-left: 0.25rem; /* puxa um tiquinho pra esquerda */
+}
+
+/* Logo escrita "LJ Doces" da navbar */
+.logo-assinatura {
+  font-family: "Great Vibes", cursive;
+  letter-spacing: 1px;
+  font-size: 1.6rem;
+}
+
+/* Ajustes em telas maiores */
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+
+  .logo-assinatura {
+    font-size: 1.9rem;
+  }
+}
+
+/* ===========================
+   FORMULÁRIOS (USO GERAL)
+   =========================== */
+
+/* Card de formulário mais clarinho */
+.card-form {
+  background-color: #fffaf0; /* bege quase branco */
+  border-radius: 12px;
+}
+
+/* Input / select padrão */
+.form-control,
+.form-select {
+  border-radius: 8px;
+  border-color: #e0c8aa; /* bege mais escuro */
+}
+
+/* Quando o usuário clicar no campo (foco) */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--marrom-medio);
+  box-shadow: 0 0 0 0.15rem rgba(138, 75, 42, 0.25);
+}
+
+/* ===========================
+   BOTÕES PADRÃO
+   =========================== */
+
+.btn-marrom {
+  background-color: var(--marrom-escuro);
+  color: #fff;
+  border-color: var(--marrom-escuro);
+}
+
+.btn-marrom:hover {
+  background-color: var(--marrom-medio);
+  border-color: var(--marrom-medio);
+}
+
+.btn-outline-marrom {
+  color: var(--marrom-escuro);
+  border-color: var(--marrom-escuro);
+}
+
+.btn-outline-marrom:hover {
+  background-color: var(--marrom-escuro);
+  color: #fff;
+}
+
+/* Botão iFood: só ele é vermelho */
+.btn-ifood {
+  background-color: #ea1d2c;
+  border-color: #ea1d2c;
+  color: #fff;
+  font-weight: 600;
+}
+
+.btn-ifood:hover,
+.btn-ifood:focus {
+  background-color: #c41624;
+  border-color: #c41624;
+  color: #fff;
+}
+
+/* ===========================
+   FOOTER
+   =========================== */
+
+.site-footer {
+  background-color: #f5debf;
+  color: #462111;
+  text-align: center;
+  padding: 0.8rem 0 1.2rem;  /* antes era maior */
+  margin-top: 0.5rem;        /* diminui a distância dos botões até o footer */
+  font-size: 0.9rem;
+}
+
+.site-footer a {
+  color: var(--marrom-escuro);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.site-footer a:hover {
+  text-decoration: none;
+}
