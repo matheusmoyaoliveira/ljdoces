@@ -5,23 +5,25 @@
 {% endblock %}
 
 {% block content %}
-<section class="hero text-center text-marrom">
+<section class="hero text-marrom">
   <div class="row align-items-center">
-    <div class="col-12 col-lg-6 mb-4 mb-lg-0">
-      <img
-        src="{{ url_for('static', filename='img/logo_ljdoces_contatos.png') }}"
-        alt="Logo LJ Doces"
-        class="img-fluid logo-img mx-auto d-block mb-4"
-      >
+    <div class="col-12 col-lg-6 mb-4 mb-lg-0 d-flex justify-content-center">
+      <div class="logo-selo">
+        <img
+          src="{{ url_for('static', filename='img/Logo_Brigadeiro_Transparente.png') }}"
+          alt="Logo LJ Doces"
+          class="img-fluid logo-img"
+        >
+      </div>
     </div>
 
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-6 text-center text-lg-start">
       <h1 class="fw-bold mb-3">Brigadeiros que derretem corações</h1>
       <p class="lead mb-4">
         LJ Doces – encomendas de doces e brigadeiros para festas, eventos e datas especiais.
       </p>
 
-      <div class="d-flex flex-wrap justify-content-center gap-3 hero-botoes">
+      <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3 hero-botoes">
         <a href="{{ url_for('cardapio') }}" class="btn btn-marrom btn-lg">
           Ver cardápio
         </a>
