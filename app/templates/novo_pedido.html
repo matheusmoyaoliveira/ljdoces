@@ -1,108 +1,121 @@
 {% extends "base.html" %}
 
+{% block title %}Fazer pedido · LJ Doces{% endblock %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/pedido.css') }}">
 {% endblock %}
 
 {% block content %}
-<section class="pedido-wrapper text-marrom">
 
-  <h1 class="text-center fw-bold mb-2 pedido-titulo">
-    Fazer pedido
-  </h1>
+<section class="pedido-page page">
+  <div class="wrap wrap--narrow">
 
-  <p class="text-center text-muted mb-4 pedido-subtitulo">
-    Preencha os dados que a LJ Doces monta o pedido e abre o WhatsApp pra você confirmar. 🍬
-  </p>
+    {# ── Header ── #}
+    <header class="pedido-header" data-reveal>
+      <div class="eyebrow">
+        <span class="line"></span>
+        Pedido · Etapa 1 de 2
+      </div>
 
-  <div class="card card-form pedido-card mx-auto">
-    <form method="post" class="pedido-form">
+      <h1 class="pedido-h1 display">
+        Fazer<br><em>pedido</em>
+      </h1>
 
-        <div class="mb-3">
-          <label for="nome_cliente" class="form-label">Nome</label>
-          <input
-            type="text"
-            class="form-control"
-            id="nome_cliente"
-            name="nome_cliente"
-            required
-          >
+      <p class="pedido-lede lede">
+        Preencha os dados abaixo. A LJ Doces monta o pedido e abre o WhatsApp
+        pra você confirmar tudo direto com a doceria.
+      </p>
+    </header>
+
+    {# ── Form ── #}
+    <form method="post" class="pedido-form" data-reveal data-reveal-delay="1">
+      <ol class="form-steps" aria-hidden="true">
+        <li class="active"><span>01</span> Seus dados</li>
+        <li><span>02</span> Confirmação</li>
+      </ol>
+
+      {# ── Quem é você ── #}
+      <fieldset class="form-block">
+        <legend class="form-block-legend">
+          <span class="legend-num">01</span>
+          <span class="legend-text">Quem é você</span>
+        </legend>
+
+        <div class="form-row form-row--2">
+          <div class="field">
+            <input type="text" id="nome_cliente" name="nome_cliente" required autocomplete="name" placeholder=" ">
+            <label for="nome_cliente">Nome completo</label>
+          </div>
+
+          <div class="field">
+            <input type="tel" id="whatsapp" name="whatsapp" required autocomplete="tel" placeholder=" ">
+            <label for="whatsapp">WhatsApp</label>
+            <small class="field-hint">(11) 99999-9999</small>
+          </div>
+        </div>
+      </fieldset>
+
+      {# ── O pedido ── #}
+      <fieldset class="form-block">
+        <legend class="form-block-legend">
+          <span class="legend-num">02</span>
+          <span class="legend-text">O pedido</span>
+        </legend>
+
+        <div class="form-row form-row--2">
+          <div class="field">
+            <select id="produto_id" name="produto_id" required>
+              <option value="">Selecione um doce</option>
+              {% for produto in produtos %}
+                <option value="{{ produto.id }}">
+                  {{ produto.nome }} — R$ {{ "%.2f"|format(produto.preco_venda) }}
+                </option>
+              {% endfor %}
+            </select>
+            <label for="produto_id">Produto</label>
+          </div>
+
+          <div class="field">
+            <input type="number" id="quantidade" name="quantidade" min="1" value="1" required placeholder=" ">
+            <label for="quantidade">Quantidade</label>
+          </div>
         </div>
 
-        <div class="mb-3">
-          <label for="whatsapp" class="form-label">WhatsApp</label>
-          <input
-            type="text"
-            class="form-control"
-            id="whatsapp"
-            name="whatsapp"
-            placeholder="(11) 99999-9999"
-            required
-          >
+        <div class="form-row">
+          <div class="field">
+            <input type="date" id="data_desejada" name="data_desejada" required placeholder=" ">
+            <label for="data_desejada">Data desejada da entrega</label>
+          </div>
         </div>
 
-        <div class="mb-3">
-          <label for="data_desejada" class="form-label">Data desejada da entrega</label>
-          <input
-            type="date"
-            class="form-control"
-            id="data_desejada"
-            name="data_desejada"
-            required
-          >
+        <div class="form-row">
+          <div class="field field--textarea">
+            <textarea id="observacoes" name="observacoes" rows="4" placeholder=" "></textarea>
+            <label for="observacoes">Observações</label>
+            <small class="field-hint">Sabores, tema da festa, restrições alimentares, etc.</small>
+          </div>
         </div>
+      </fieldset>
 
-        <div class="mb-3">
-          <label for="produto_id" class="form-label">Produto</label>
-          <select
-            class="form-select"
-            id="produto_id"
-            name="produto_id"
-            required
-          >
-            <option value="">Selecione um doce</option>
-            {% for produto in produtos %}
-              <option value="{{ produto.id }}">
-                {{ produto.nome }} – R$ {{ "%.2f"|format(produto.preco_venda) }}
-              </option>
-            {% endfor %}
-          </select>
-        </div>
+      {# ── Submit ── #}
+      <div class="form-actions">
+        <a href="{{ url_for('home') }}" class="btn btn--ghost">
+          ← Voltar
+        </a>
+        <button type="submit" class="btn btn--primary btn--lg">
+          Continuar
+          <span class="arrow">→</span>
+        </button>
+      </div>
 
-        <div class="mb-3">
-          <label for="quantidade" class="form-label">Quantidade</label>
-          <input
-            type="number"
-            min="1"
-            value="1"
-            class="form-control"
-            id="quantidade"
-            name="quantidade"
-            required
-          >
-        </div>
+      <p class="form-disclaimer">
+        Ao continuar, montaremos uma mensagem com seu pedido para enviar via WhatsApp.
+        Nada é cobrado nesta etapa.
+      </p>
+    </form>
 
-        <div class="mb-3">
-          <label for="observacoes" class="form-label">Observações</label>
-          <textarea
-            class="form-control"
-            id="observacoes"
-            name="observacoes"
-            rows="3"
-            placeholder="Sabores, tema da festa, restrições (ex.: sem lactose), etc."
-          ></textarea>
-        </div>
-
-        <div class="d-flex justify-content-between align-items-center mt-4 pedido-botoes">
-          <a href="{{ url_for('home') }}" class="btn btn-outline-marrom">
-            Voltar
-          </a>
-          <button type="submit" class="btn btn-marrom">
-            Enviar pedido
-          </button>
-        </div>
-      </form>
-    </div>
   </div>
 </section>
+
 {% endblock %}

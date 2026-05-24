@@ -1,190 +1,424 @@
+/* ===================================================
+   LJ DOCES — cardapio.css
+   Editorial menu page: hero · gallery · empadas
+   =================================================== */
+
 /* ===========================
-   /cardapio – galeria de imagens
+   HERO
    =========================== */
 
-.cardapio-galeria {
-  max-width: 1100px;
-  margin: 0 auto 3rem;
-  padding: 2.3rem 2rem 2.4rem;
-  background-color: #fdf2e3;
-  border-radius: 24px;
-  border: 1px solid #e4c5a0;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+.cardapio-hero {
+  padding-bottom: var(--space-2xl);
 }
 
-.cardapio-galeria-sub {
-  max-width: 680px;
-  margin: 0 auto;
-  font-size: 0.98rem;
-  color: #8a4b2a;
+.cardapio-hero-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 4rem;
+  align-items: end;
+  padding-top: 2rem;
 }
 
-/* Container de cada cardápio (marrom + rosa) */
-.cardapio-fig {
-  margin: 0;
-  padding: 1.3rem 1.3rem 1rem;
-  border-radius: 26px;
-  background: linear-gradient(145deg, #fef7ee, #fbe4c4);
-  border: 1px solid rgba(222, 180, 130, 0.4);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+.cardapio-hero-text { display: flex; flex-direction: column; gap: 1.4rem; }
+
+.cardapio-h1 {
+  font-family: var(--f-display);
+  font-size: clamp(3.2rem, 8vw, 6.4rem);
+  font-weight: 500;
+  line-height: .92;
+  letter-spacing: -0.035em;
+  color: var(--creme);
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+}
+.cardapio-h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--champagne);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
 }
 
-/* Cardápio rosa maior – destaque extra */
-.cardapio-fig--full {
-  margin-top: 1.75rem;
-  padding: 1.6rem 2rem 1.4rem;
-  border-radius: 28px;
-  background: radial-gradient(circle at top,
-    #fff7fb 0%,
-    #ffe1ef 45%,
-    #ffd3e6 100%
-  );
-  border: 1px solid rgba(255, 160, 190, 0.55);
+.cardapio-lede { max-width: 46ch; }
+
+.cardapio-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.4rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(212,168,83,.18);
+}
+.cardapio-jump {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: var(--f-mono);
+  font-size: .68rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--creme-2);
+  padding: .25rem 0;
+  border-bottom: 1px solid transparent;
+  transition: color .2s, border-color .2s, gap .25s;
+}
+.cardapio-jump:hover {
+  color: var(--ouro-luz);
+  border-color: var(--ouro-luz);
+  gap: .75rem;
+}
+.cardapio-jump--accent { color: var(--ouro-luz); border-bottom-color: rgba(212,168,83,.4); }
+
+/* aside card */
+.cardapio-hero-aside { display: grid; place-items: center; }
+.aside-card {
+  position: relative;
+  background: linear-gradient(160deg, var(--chocolate-3), var(--chocolate-2));
+  border: 1px solid rgba(212,168,83,.2);
+  border-radius: 4px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  max-width: 360px;
+}
+.aside-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ouro), transparent);
+}
+.aside-num {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--ouro-luz);
+  font-variation-settings: "opsz" 100;
+}
+.aside-divider { height: 1px; background: rgba(212,168,83,.2); }
+.aside-text {
+  font-family: var(--f-display);
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: var(--creme);
+  font-variation-settings: "opsz" 60;
+}
+.aside-text em {
+  font-style: italic;
+  color: var(--champagne);
+}
+.aside-link {
+  font-family: var(--f-mono);
+  font-size: .85rem;
+  letter-spacing: .08em;
+  color: var(--ouro-luz);
+  align-self: flex-start;
+  padding: .35rem 0;
+  border-bottom: 1px solid rgba(212,168,83,.35);
+  transition: color .2s, border-color .2s;
+}
+.aside-link:hover { color: var(--champagne); border-color: var(--champagne); }
+
+
+/* ===========================
+   GALERIA
+   =========================== */
+
+.galeria {
+  padding-block: var(--space-2xl);
 }
 
-/* deixa o cardápio rosa um pouco maior e sem cortar info */
-.cardapio-fig--full .cardapio-img {
-  max-height: 700px;   /* antes era “herdado” dos 520px */
-  object-fit: contain; /* mostra a imagem inteira sem cortar */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+.frame--full {
+  grid-column: 1 / -1;
+  max-width: 920px;
+  margin-inline: auto;
 }
 
-.cardapio-img {
-  border-radius: 24px;
-  max-height: 750px;
-  width: 100%;
-  object-fit: contain;
-  display: block;
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
-  transition: 
-    transform 0.18s ease-out, 
-    box-shadow 0.18s ease-out, 
+.frame {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform .4s var(--ease-out);
 }
+.frame:hover { transform: translateY(-6px); }
 
-/* Efeito no hover: sobe um pouquinho, aumenta a sombra e dá um leve “glow” */
-.cardapio-img:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.20);
-  filter: brightness(1.03);
+.frame-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: .8rem;
+  border-bottom: 1px solid rgba(212,168,83,.2);
 }
-
-/* zoomzinho suave no hover pra não ficar “imagem crua” */
-.cardapio-img:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.18);
+.frame-num {
+  font-family: var(--f-mono);
+  font-size: .7rem;
+  letter-spacing: .22em;
+  color: var(--ouro);
 }
-
-/* legenda embaixo da imagem */
-.cardapio-legenda {
-  margin-top: 0.55rem;
-  font-size: 0.9rem;
-  letter-spacing: 0.01em;
-  color: #7a3c1a;
+.frame-cat {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--creme);
+  flex: 1;
   text-align: center;
-  opacity: 0.92;
+  font-variation-settings: "opsz" 60;
+}
+.frame-badge {
+  font-family: var(--f-mono);
+  font-size: .6rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--sienna-luz);
+  padding: .2rem .6rem;
+  border: 1px solid rgba(217, 128, 95, .4);
+  border-radius: 100px;
 }
 
-/* responsivo em tela menor */
-@media (max-width: 767.98px) {
-  .cardapio-galeria {
-    padding: 1.6rem 1.25rem 1.9rem;
-    border-radius: 20px;
-  }
+.frame-img {
+  position: relative;
+  background: var(--chocolate-3);
+  padding: 1.2rem;
+  border: 1px solid rgba(212,168,83,.14);
+  transition: border-color .3s;
+}
+.frame:hover .frame-img { border-color: rgba(212,168,83,.4); }
 
-  .cardapio-fig {
-    padding: 1rem 1rem 0.8rem;
-    border-radius: 22px;
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
-  }
+.frame-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  background: var(--noir);
+  max-height: 720px;
+  object-fit: contain;
+}
+.frame-img .frame-corner {
+  position: absolute;
+  width: 14px; height: 14px;
+  border: 1px solid var(--ouro);
+  opacity: .65;
+}
+.frame-img .tl { top: -1px; left: -1px;    border-right: none;  border-bottom: none; }
+.frame-img .tr { top: -1px; right: -1px;   border-left: none;   border-bottom: none; }
+.frame-img .bl { bottom: -1px; left: -1px; border-right: none;  border-top: none; }
+.frame-img .br { bottom: -1px; right: -1px;border-left: none;   border-top: none; }
 
-  .cardapio-img {
-    max-height: 430px;
-  }
+.frame-caption {
+  font-family: var(--f-body);
+  font-size: .88rem;
+  color: var(--creme-3);
+  text-align: center;
+  letter-spacing: .02em;
+  padding-top: .5rem;
+}
+.frame-caption em {
+  font-family: var(--f-display);
+  font-style: italic;
+  color: var(--champagne);
+  font-size: 1.05em;
+  font-variation-settings: "opsz" 60;
 }
 
 
 /* ===========================
-   /cardapio – bloco empadas
+   EMPADAS
    =========================== */
 
-.cardapio-empadas-wrapper {
-  max-width: 1100px;
-  margin: 3rem auto 2.5rem;
+.empadas {
+  padding-block: var(--space-2xl);
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(8, 4, 10, .55) 50%, transparent 100%);
+  position: relative;
+}
+.empadas::before, .empadas::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,168,83,.25), transparent);
+}
+.empadas::before { top: 0; }
+.empadas::after  { bottom: 0; }
+
+.empada-feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
 }
 
-.empada-card {
-  max-width: 980px;
-  margin: 0 auto 1.5rem;
-  border-radius: 26px;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  background: linear-gradient(
-    180deg,
-    #fff7ea 0%,
-    #fdf2e3 55%,
-    #f7e0bd 100%
-  );
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
+.empada-img {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: var(--chocolate-3);
+  padding: 16px;
+  border: 1px solid rgba(212,168,83,.2);
   overflow: hidden;
 }
-
-
-.empada-card .empada-img-top {
+.empada-img img {
   width: 100%;
-  max-height: 260px;
+  height: 100%;
   object-fit: cover;
-  object-position: center 35%;      /* puxa um pouco o “miolo” da foto */
-  display: block;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  object-position: center 35%;
+}
+.empada-img-label {
+  position: absolute;
+  bottom: 1.6rem;
+  left: 1.6rem;
+  background: var(--noir);
+  color: var(--ouro-luz);
+  font-family: var(--f-mono);
+  font-size: .68rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  padding: .55rem 1rem;
+  border: 1px solid rgba(212,168,83,.3);
+  border-radius: 100px;
 }
 
-.empada-card .card-body {
-  padding: 2.3rem 2.6rem 2.2rem;
+.empada-content { display: flex; flex-direction: column; gap: 1.2rem; }
+
+.empada-kicker {
+  font-family: var(--f-mono);
+  font-size: .68rem;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--sienna-luz);
+}
+.empada-title {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--creme);
+}
+.empada-title em { font-style: italic; color: var(--champagne); font-weight: 400; }
+
+.empada-desc {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--creme-2);
+  max-width: 46ch;
 }
 
-.empada-card .empada-titulo {
-  font-size: 1.55rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  margin-bottom: 0.9rem;
+.empada-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+  padding-top: .6rem;
+  border-top: 1px solid rgba(212,168,83,.18);
+}
+.empada-list li {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  font-family: var(--f-display);
+  font-size: 1.15rem;
+  color: var(--creme);
+  font-variation-settings: "opsz" 60;
+}
+.empada-list .dot {
+  color: var(--ouro);
+  font-size: .7em;
 }
 
-.empada-card .empada-lista {
-  padding-left: 1.4rem;
-  margin: 0.85rem 0 1rem;
+.empada-note {
+  font-size: .9rem;
+  color: var(--creme-3);
+  background: rgba(212,168,83,.06);
+  border: 1px solid rgba(212,168,83,.18);
+  padding: .85rem 1.1rem;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
 }
-
-.empada-card .empada-lista li {
-  margin-bottom: 0.35rem;
-}
-
-.empada-card .empada-destaque {
+.note-icon {
+  display: grid;
+  place-items: center;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--ouro);
+  color: var(--noir);
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: .85rem;
   font-weight: 600;
-  color: var(--marrom-escuro);
-  margin-top: 0.6rem;
+  flex-shrink: 0;
 }
 
-/* mobile – card mais compacto */
-@media (max-width: 767.98px) {
-  .empada-card {
-    border-radius: 22px;
-    margin-top: 1.5rem;
-  }
-
-  .empada-card .card-body {
-    padding: 1.9rem 1.6rem 1.8rem;
-  }
-}
 
 /* ===========================
-   /cardapio – CTA final
+   CTA FINAL
    =========================== */
 
-.cardapio-cta-final {
-  max-width: 900px;
-  margin: 0 auto 0.1rem;    
-  padding-bottom: 0.1rem;         
+.cardapio-cta {
+  padding-block: var(--space-2xl);
 }
 
-.cardapio-cta-final p {
-  max-width: 540px;
-  margin: 0 auto 1.4rem;
+.cta-card {
+  background:
+    radial-gradient(ellipse 80% 60% at 80% 20%, rgba(232,197,160,.12) 0%, transparent 55%),
+    linear-gradient(160deg, var(--chocolate-3), var(--chocolate));
+  border: 1px solid rgba(212,168,83,.22);
+  border-radius: 4px;
+  padding: 3.5rem;
+  display: grid;
+  grid-template-columns: 1.4fr auto;
+  align-items: center;
+  gap: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.cta-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ouro), transparent);
+}
+
+.cta-card-text { display: flex; flex-direction: column; gap: .8rem; }
+.cta-card-h2 {
+  font-family: var(--f-display);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  color: var(--creme);
+}
+.cta-card-h2 em { font-style: italic; color: var(--champagne); font-weight: 400; }
+
+.cta-card-p {
+  font-size: 1rem;
+  color: var(--creme-3);
+  max-width: 46ch;
+}
+
+.cta-card-btns { display: flex; gap: .9rem; flex-wrap: wrap; }
+
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+
+@media (max-width: 1024px) {
+  .cardapio-hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .cardapio-hero-aside { justify-self: flex-start; }
+  .empada-feature { grid-template-columns: 1fr; gap: 2.5rem; }
+  .empada-img { aspect-ratio: 16 / 11; }
+  .cta-card { grid-template-columns: 1fr; gap: 2rem; padding: 2.4rem; }
+}
+
+@media (max-width: 768px) {
+  .galeria-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .frame-head { flex-wrap: wrap; gap: .5rem; }
+  .frame-cat { text-align: left; flex: 1 1 100%; order: 3; }
 }

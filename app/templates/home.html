@@ -5,121 +5,345 @@
 {% endblock %}
 
 {% block content %}
-<section class="hero text-marrom">
-  <div class="row align-items-center">
-    <div class="col-12 col-lg-6 mb-4 mb-lg-0 d-flex justify-content-center">
-      <div class="logo-selo">
-        <img
-          src="{{ url_for('static', filename='img/Logo_Brigadeiro_Transparente.png') }}"
-          alt="Logo LJ Doces"
-          class="img-fluid logo-img"
-        >
-      </div>
-    </div>
 
-    <div class="col-12 col-lg-6 text-center text-lg-start">
-      <h1 class="fw-bold mb-3">Brigadeiros que derretem corações</h1>
-      <p class="lead mb-4">
-        LJ Doces – encomendas de doces e brigadeiros para festas, eventos e datas especiais.
+{# ═══════════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════════ #}
+<section class="hero page">
+  <div class="hero-glow" aria-hidden="true"></div>
+
+  <div class="hero-grid wrap">
+
+    <div class="hero-text">
+      <div class="eyebrow" data-reveal>
+        <span class="line"></span>
+        EST · ARTESANAL · SP
+      </div>
+
+      <h1 class="hero-title display" data-reveal data-reveal-delay="1">
+        Doces que<br>
+        <em>encantam</em><span class="ornament">✦</span>
+      </h1>
+
+      <p class="hero-lede lede" data-reveal data-reveal-delay="2">
+        Brigadeiros, bolos no pote, sobremesas e empadas preparados sob encomenda
+        com carinho, ingredientes selecionados e receita de família.
       </p>
 
-      <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3 hero-botoes">
-        <a href="{{ url_for('cardapio') }}" class="btn btn-marrom btn-lg">
+      <div class="hero-ctas" data-reveal data-reveal-delay="3">
+        <a href="{{ url_for('cardapio') }}" class="btn btn--primary">
           Ver cardápio
+          <span class="arrow">→</span>
         </a>
-
-        <a href="{{ url_for('novo_pedido') }}" class="btn btn-outline-marrom btn-lg">
+        <a href="{{ url_for('novo_pedido') }}" class="btn btn--ghost">
           Fazer pedido
         </a>
+      </div>
 
-        <a
-          href="https://www.ifood.com.br/delivery/sao-paulo-sp/ljdoces-parque-sao-lucas/73cb7a63-8fbd-4320-a419-f48b501e7889"
-          class="btn btn-ifood btn-lg"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Ver no iFood
+      <dl class="hero-meta" data-reveal data-reveal-delay="4">
+        <div class="meta-item">
+          <dt class="meta-num">15<span>+</span></dt>
+          <dd class="meta-label">Sabores</dd>
+        </div>
+        <div class="meta-divider"></div>
+        <div class="meta-item">
+          <dt class="meta-num">500<span>+</span></dt>
+          <dd class="meta-label">Entregas</dd>
+        </div>
+        <div class="meta-divider"></div>
+        <div class="meta-item">
+          <dt class="meta-num">★ 5.0</dt>
+          <dd class="meta-label">Avaliação</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="hero-visual" data-reveal data-reveal-delay="2">
+      <div class="visual-frame">
+        <span class="frame-corner tl" aria-hidden="true"></span>
+        <span class="frame-corner tr" aria-hidden="true"></span>
+        <span class="frame-corner bl" aria-hidden="true"></span>
+        <span class="frame-corner br" aria-hidden="true"></span>
+
+        <div class="visual-disc">
+          <div class="disc-ring"></div>
+          <img
+            src="{{ url_for('static', filename='img/Logo_Brigadeiro_Transparente.png') }}"
+            alt="LJ Doces — brigadeiro artesanal"
+            class="disc-img"
+          >
+        </div>
+
+        <div class="visual-label">
+          <span class="num">N° 01</span>
+          <span class="text">FEITO À MÃO</span>
+        </div>
+
+        <div class="visual-stamp" aria-hidden="true">
+          <svg viewBox="0 0 100 100">
+            <defs>
+              <path id="stamp-circle" d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
+            </defs>
+            <text font-family="JetBrains Mono" font-size="9" letter-spacing="2.5" fill="currentColor">
+              <textPath href="#stamp-circle">★ DOCERIA ARTESANAL · SÃO PAULO ★ LJ DOCES · DESDE SEMPRE · </textPath>
+            </text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <span class="scroll-label">SCROLL</span>
+    <span class="scroll-line"></span>
+  </div>
+</section>
+
+
+{# ═══════════════════════════════════════════════
+   STRIP MARQUEE
+   ═══════════════════════════════════════════════ #}
+<div class="strip" aria-hidden="true">
+  <div class="strip-track">
+    <span><em>Brigadeiros</em></span><span class="dot">●</span>
+    <span><em>Bolos no pote</em></span><span class="dot">●</span>
+    <span><em>Empadas</em></span><span class="dot">●</span>
+    <span><em>Docinhos</em></span><span class="dot">●</span>
+    <span><em>Sobremesas</em></span><span class="dot">●</span>
+    <span><em>Brigadeiros</em></span><span class="dot">●</span>
+    <span><em>Bolos no pote</em></span><span class="dot">●</span>
+    <span><em>Empadas</em></span><span class="dot">●</span>
+    <span><em>Docinhos</em></span><span class="dot">●</span>
+    <span><em>Sobremesas</em></span><span class="dot">●</span>
+  </div>
+</div>
+
+
+{# ═══════════════════════════════════════════════
+   MANIFESTO
+   ═══════════════════════════════════════════════ #}
+<section class="manifesto wrap">
+  <div class="num-tag" data-reveal>02 / Manifesto</div>
+
+  <p class="manifesto-text" data-reveal data-reveal-delay="1">
+    <em>Cada</em> docinho <em>carrega</em>
+    <span class="br"></span>
+    um <em>pedaço</em> do nosso
+    <span class="hl">coração.</span>
+  </p>
+
+  <div class="manifesto-sig" data-reveal data-reveal-delay="2">
+    <span class="sig-line"></span>
+    <span class="sig-text">LJ DOCES · SÃO PAULO</span>
+  </div>
+</section>
+
+
+{# ═══════════════════════════════════════════════
+   PRODUTOS
+   ═══════════════════════════════════════════════ #}
+<section class="produtos wrap" id="produtos">
+  <div class="section-head" data-reveal>
+    <span class="num-tag">03 / Cardápio</span>
+    <h2 class="sec-title">
+      Nossas<br>
+      <em>especialidades</em>
+    </h2>
+  </div>
+
+  <div class="produtos-grid">
+
+    <article class="prod-card prod-card--01" data-reveal data-reveal-delay="1">
+      <div class="prod-num">01</div>
+      <div class="prod-visual">
+        <span class="prod-emoji">🍫</span>
+        <span class="prod-shape" aria-hidden="true"></span>
+      </div>
+      <div class="prod-body">
+        <span class="prod-kicker">Mais pedido</span>
+        <h3>Brigadeiros</h3>
+        <p>Artesanais em mais de 15 sabores. Tradicionais, gourmet e especiais — perfeitos para festas e presentear.</p>
+        <a href="{{ url_for('cardapio') }}" class="prod-link">
+          Ver sabores
+          <span class="arrow">→</span>
         </a>
       </div>
+    </article>
+
+    <article class="prod-card prod-card--02" data-reveal data-reveal-delay="2">
+      <div class="prod-num">02</div>
+      <div class="prod-visual">
+        <span class="prod-emoji">🍮</span>
+        <span class="prod-shape" aria-hidden="true"></span>
+      </div>
+      <div class="prod-body">
+        <span class="prod-kicker">Novidade</span>
+        <h3>Bolos no pote</h3>
+        <p>Sobremesas individuais perfeitas para eventos, lanches e presentes especiais. Vários sabores disponíveis.</p>
+        <a href="{{ url_for('cardapio') }}" class="prod-link">
+          Ver opções
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="prod-card prod-card--03" data-reveal data-reveal-delay="3">
+      <div class="prod-num">03</div>
+      <div class="prod-visual">
+        <span class="prod-emoji">🥐</span>
+        <span class="prod-shape" aria-hidden="true"></span>
+      </div>
+      <div class="prod-body">
+        <span class="prod-kicker">Salgado</span>
+        <h3>Empadas</h3>
+        <p>Empadas artesanais preparadas uma a uma. Frango, queijo, catupiry e muito mais — para festas e lanches.</p>
+        <a href="{{ url_for('cardapio') }}" class="prod-link">
+          Ver sabores
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+{# ═══════════════════════════════════════════════
+   PROCESSO
+   ═══════════════════════════════════════════════ #}
+<section class="processo">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="num-tag">04 / Como pedir</span>
+      <h2 class="sec-title">
+        Simples e <em>rápido</em><br>
+        pelo WhatsApp.
+      </h2>
+    </div>
+
+    <ol class="steps">
+      <li class="step" data-reveal data-reveal-delay="1">
+        <span class="step-num">01</span>
+        <div class="step-body">
+          <h3>Veja o cardápio</h3>
+          <p>Explore todos os sabores, combos e opções com preços e detalhes.</p>
+        </div>
+      </li>
+      <li class="step" data-reveal data-reveal-delay="2">
+        <span class="step-num">02</span>
+        <div class="step-body">
+          <h3>Preencha o formulário</h3>
+          <p>Informe nome, data desejada, produto, quantidade e observações.</p>
+        </div>
+      </li>
+      <li class="step" data-reveal data-reveal-delay="3">
+        <span class="step-num">03</span>
+        <div class="step-body">
+          <h3>Confirme no WhatsApp</h3>
+          <p>O site monta o texto e abre o WhatsApp pra você revisar e enviar.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+
+{# ═══════════════════════════════════════════════
+   DEPOIMENTOS
+   ═══════════════════════════════════════════════ #}
+<section class="depoimentos wrap">
+  <div class="section-head section-head--center" data-reveal>
+    <span class="num-tag">05 / Clientes</span>
+    <h2 class="sec-title">Quem prova, <em>volta.</em></h2>
+  </div>
+
+  <div class="depo-grid">
+    <figure class="depo" data-reveal data-reveal-delay="1">
+      <span class="depo-quote-mark" aria-hidden="true">"</span>
+      <blockquote>
+        Os brigadeiros foram o destaque da festa! Todos pediram o contato.
+        Qualidade impecável e atendimento super atencioso.
+      </blockquote>
+      <figcaption>
+        <span class="depo-avatar">AM</span>
+        <span class="depo-meta">
+          <strong>Ana Maria S.</strong>
+          <small>Aniversário · 1 ano</small>
+        </span>
+      </figcaption>
+    </figure>
+
+    <figure class="depo" data-reveal data-reveal-delay="2">
+      <span class="depo-quote-mark" aria-hidden="true">"</span>
+      <blockquote>
+        Encomendar foi super fácil pelo WhatsApp. Os bolos no pote chegaram
+        lindos e deliciosos. Virou a fornecedora das nossas confraternizações!
+      </blockquote>
+      <figcaption>
+        <span class="depo-avatar">CL</span>
+        <span class="depo-meta">
+          <strong>Claudia L.</strong>
+          <small>Confraternização · Empresa</small>
+        </span>
+      </figcaption>
+    </figure>
+
+    <figure class="depo" data-reveal data-reveal-delay="3">
+      <span class="depo-quote-mark" aria-hidden="true">"</span>
+      <blockquote>
+        As empadas são maravilhosas! Massa fininha, recheio generoso.
+        Já pedi três vezes e cada vez fico mais impressionada com o capricho.
+      </blockquote>
+      <figcaption>
+        <span class="depo-avatar">RV</span>
+        <span class="depo-meta">
+          <strong>Roberta V.</strong>
+          <small>Cliente frequente</small>
+        </span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+
+{# ═══════════════════════════════════════════════
+   CTA FINAL
+   ═══════════════════════════════════════════════ #}
+<section class="cta-final">
+  <div class="cta-bg" aria-hidden="true"></div>
+
+  <div class="wrap cta-inner" data-reveal>
+    <span class="num-tag">06 / Vamos lá</span>
+
+    <h2 class="cta-title display">
+      Pronto pra <em>adoçar</em><br>
+      seu dia?
+    </h2>
+
+    <p class="cta-lede lede">
+      Entre em contato pelo WhatsApp, combine os detalhes e garanta
+      seus doces para a próxima ocasião especial.
+    </p>
+
+    <div class="cta-btns">
+      <a href="https://wa.me/5511943549820" class="btn btn--wa btn--lg" target="_blank" rel="noopener noreferrer">
+        Pedir pelo WhatsApp
+        <span class="arrow">→</span>
+      </a>
+      <a href="{{ url_for('novo_pedido') }}" class="btn btn--ghost btn--lg">
+        Formulário online
+      </a>
+    </div>
+
+    <div class="cta-meta">
+      <span>(11) 94354-9820</span>
+      <span class="dot">·</span>
+      <span>@_ljdocess</span>
+      <span class="dot">·</span>
+      <span>São Paulo</span>
     </div>
   </div>
 </section>
 
-<section class="mt-2 pt-4 pb-5 text-marrom text-center">
-  <h2 class="mb-3">Sobre a LJ Doces</h2>
-  <p class="lead mb-3">
-    A LJ Doces é uma doceria artesanal, especializada em brigadeiros, bolos no pote,
-    sobremesas e empadas preparadas sob encomenda.
-  </p>
-  <p class="mb-0">
-    Tudo é feito com carinho, ingredientes selecionados e aquele toque de receita de família,
-    pensado para festas, eventos, lanches e presentes especiais. 🎂✨
-  </p>
-</section>
-
-<section class="pb-5 text-marrom">
-  <h2 class="text-center mb-4">Por que encomendar com a LJ Doces?</h2>
-
-  <div class="row g-4 mt-3">
-    <div class="col-12 col-md-4">
-      <div class="card info-card info-card--artesanal h-100">
-        <h3>🍫 Doces artesanais</h3>
-        <p>Produção caseira, em pequena escala, com cuidado em cada unidade.</p>
-        <p>Brigadeiros, bolos no pote, docinhos e sobremesas.</p>
-      </div>
-    </div>
-
-    <div class="col-12 col-md-4">
-      <div class="card info-card info-card--festas h-100">
-        <h3>🎉 Encomendas para festas</h3>
-        <p>Opções para aniversário, chá de bebê, confraternização, empresas e datas especiais.</p>
-        <p>Quantidade combinada com você.</p>
-      </div>
-    </div>
-
-    <div class="col-12 col-md-4">
-      <div class="card info-card info-card--whatsapp h-100">
-        <h3>💬 Atendimento pelo WhatsApp</h3>
-        <p>Você faz o pedido pelo WhatsApp, tira dúvidas e combina sabores e datas direto com a doceria.</p>
-        <p>Resposta rápida e atendimento próximo.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="pb-5 text-marrom home-passo-final">
-  <h2 class="text-center mb-4">Como fazer seu pedido</h2>
-
-  <div class="row g-4 mt-3">
-    <div class="col-12 col-md-4">
-      <div class="card howto-card howto-card--cardapio h-100">
-        <h3>Veja o cardápio</h3>
-        <p>Acesse o cardápio completo com doces, sobremesas e empadas.</p>
-      </div>
-    </div>
-
-    <div class="col-12 col-md-4">
-      <div class="card howto-card howto-card--formulario h-100">
-        <h3>Preencha o formulário</h3>
-        <p>Informe nome, data, produto, quantidade e observações.</p>
-      </div>
-    </div>
-
-    <div class="col-12 col-md-4">
-      <div class="card howto-card howto-card--whatsapp h-100">
-        <h3>Confirme pelo WhatsApp</h3>
-        <p>O site monta o texto e abre o WhatsApp da LJ Doces pra você revisar e enviar.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="passo-botoes">
-    <a href="{{ url_for('cardapio') }}" class="btn btn-marrom btn-lg">
-      Cardápio completo
-    </a>
-    <a href="{{ url_for('novo_pedido') }}" class="btn btn-outline-marrom btn-lg">
-      Fazer pedido agora
-    </a>
-  </div>
-</section>
 {% endblock %}

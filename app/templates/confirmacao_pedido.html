@@ -1,47 +1,98 @@
 {% extends "base.html" %}
 
+{% block title %}Pedido registrado · LJ Doces{% endblock %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/pedido.css') }}">
 {% endblock %}
 
 {% block content %}
-<section class="pedido-confirmacao-page text-marrom">
-  <h1 class="text-center fw-bold mb-4">Pedido registrado!</h1>
 
-  <div class="card pedido-card-resumo shadow-sm">
-    <div class="card-body">
-      <h2 class="h5 mb-3">Resumo do pedido</h2>
+<section class="pedido-page page">
+  <div class="wrap wrap--narrow">
 
-      <p><strong>Cliente:</strong> {{ pedido.nome_cliente }}</p>
-      <p><strong>WhatsApp do cliente:</strong> {{ pedido.whatsapp }}</p>
-      <p><strong>Data desejada:</strong> {{ data_desejada_br }}</p>
-      <p><strong>Produto:</strong> {{ produto.nome }}</p>
-      <p><strong>Quantidade:</strong> {{ item.quantidade }}</p>
+    {# ── Header ── #}
+    <header class="confirmacao-header" data-reveal>
+      <div class="confirmacao-icone" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
 
-      {% if pedido.observacoes %}
-      <p><strong>Observações:</strong> {{ pedido.observacoes }}</p>
-      {% else %}
-      <p><strong>Observações:</strong> —</p>
-      {% endif %}
+      <div class="eyebrow">
+        <span class="line"></span>
+        Pedido · Etapa 2 de 2
+      </div>
 
-      <hr>
+      <h1 class="pedido-h1 display">
+        Pedido<br><em>registrado!</em>
+      </h1>
 
-      <p class="pequeno-texto mb-0">
-        Agora é só clicar no botão abaixo para enviar esse pedido
-        diretamente para o WhatsApp da LJ Doces.
+      <p class="pedido-lede lede">
+        Confira os detalhes abaixo e clique em <strong>Enviar no WhatsApp</strong>
+        para confirmar tudo direto com a LJ Doces.
       </p>
-    </div>
+    </header>
 
-    <div class="pedido-resumo-botoes">
-      <a href="{{ url_for('home') }}" class="btn btn-outline-marrom">
-        Voltar ao início
-      </a>
-      <a href="{{ link_whatsapp }}" target="_blank"
-         rel="noopener noreferrer"
-         class="btn btn-whatsapp">
-        Enviar no WhatsApp
-      </a>
-    </div>
+    {# ── Resumo card ── #}
+    <article class="resumo-card" data-reveal data-reveal-delay="1">
+      <header class="resumo-card-head">
+        <span class="resumo-num">N° 01</span>
+        <h2 class="resumo-title">Resumo do pedido</h2>
+        <span class="resumo-tag">Pendente</span>
+      </header>
+
+      <dl class="resumo-grid">
+        <div class="resumo-row">
+          <dt>Cliente</dt>
+          <dd>{{ pedido.nome_cliente }}</dd>
+        </div>
+        <div class="resumo-row">
+          <dt>WhatsApp</dt>
+          <dd>{{ pedido.whatsapp }}</dd>
+        </div>
+        <div class="resumo-row">
+          <dt>Data desejada</dt>
+          <dd>{{ data_desejada_br }}</dd>
+        </div>
+        <div class="resumo-row">
+          <dt>Produto</dt>
+          <dd>{{ produto.nome }}</dd>
+        </div>
+        <div class="resumo-row">
+          <dt>Quantidade</dt>
+          <dd>{{ item.quantidade }}</dd>
+        </div>
+        <div class="resumo-row resumo-row--full">
+          <dt>Observações</dt>
+          <dd>
+            {% if pedido.observacoes %}
+              {{ pedido.observacoes }}
+            {% else %}
+              <span class="resumo-empty">— Nenhuma observação —</span>
+            {% endif %}
+          </dd>
+        </div>
+      </dl>
+
+      <div class="resumo-aviso">
+        <span class="aviso-icon">→</span>
+        Clique em <strong>"Enviar no WhatsApp"</strong> para abrir a conversa
+        com a LJ Doces e finalizar o pedido.
+      </div>
+
+      <footer class="resumo-card-actions">
+        <a href="{{ url_for('home') }}" class="btn btn--ghost">
+          ← Voltar ao início
+        </a>
+        <a href="{{ link_whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn--wa btn--lg">
+          Enviar no WhatsApp
+          <span class="arrow">→</span>
+        </a>
+      </footer>
+    </article>
+
   </div>
 </section>
+
 {% endblock %}

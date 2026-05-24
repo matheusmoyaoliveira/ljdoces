@@ -1,112 +1,218 @@
 {% extends "base.html" %}
 
+{% block title %}Cardápio · LJ Doces{% endblock %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/cardapio.css') }}">
 {% endblock %}
 
 {% block content %}
-<section class="text-center text-marrom mt-4 mb-3">
-  <h1 class="fw-bold mb-2">Nosso cardápio</h1>
-  <p class="lead">
-    Doces preparados sob encomenda, com todo cuidado da LJ Doces. 💛
-  </p>
-</section>
 
-{# BLOCO: cardápios em imagem dentro de um “quadro” #}
-<section class="cardapio-galeria text-marrom mb-5">
-  <h2 class="h4 text-center mb-3">
-    Veja também nossos cardápios em imagem
-  </h2>
-  <p class="text-center cardapio-galeria-sub mb-4">
-    Aqui você encontra os sabores, combinações e valores sugeridos.  
-    Para encomendas especiais, é só falar pelo WhatsApp.
-  </p>
+{# ═══════════════════════════════════════════════
+   HERO DO CARDÁPIO
+   ═══════════════════════════════════════════════ #}
+<section class="cardapio-hero page wrap">
+  <div class="cardapio-hero-grid">
+    <div class="cardapio-hero-text">
+      <div class="eyebrow" data-reveal>
+        <span class="line"></span>
+        Confira nossas delícias
+      </div>
 
-  <div class="row g-4 justify-content-center">
-    <div class="col-12 col-md-6">
-      <figure class="cardapio-fig">
-        <img
-          src="{{ url_for('static', filename='img/cardapio_doces_1.jpg') }}"
-          alt="Cardápio de docinhos LJ Doces - sabores tradicionais"
-          class="img-fluid cardapio-img"
-        >
-        <figcaption class="cardapio-legenda">
-          Docinhos tradicionais – unidade, 50 e 100 unidades.
-        </figcaption>
-      </figure>
-    </div>
+      <h1 class="cardapio-h1 display" data-reveal data-reveal-delay="1">
+        Nosso<br><em>cardápio</em>
+      </h1>
 
-    <div class="col-12 col-md-6">
-      <figure class="cardapio-fig">
-        <img
-          src="{{ url_for('static', filename='img/cardapio_doces_2.jpg') }}"
-          alt="Cardápio de docinhos LJ Doces - sabores especiais"
-          class="img-fluid cardapio-img"
-        >
-        <figcaption class="cardapio-legenda">
-          Sabores especiais para montar sua mesa de doces.
-        </figcaption>
-      </figure>
-    </div>
-
-    <div class="col-12 col-md-10 col-lg-8">
-      <figure class="cardapio-fig cardapio-fig--full">
-        <img
-          src="{{ url_for('static', filename='img/cardapio_sobremesas.jpg') }}"
-          alt="Cardápio de sobremesas e bolos no pote LJ Doces"
-          class="img-fluid cardapio-img"
-        >
-        <figcaption class="cardapio-legenda">
-          Sobremesas e bolos no pote – opções individuais e para compartilhar.
-        </figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-{# BLOCO: Empadas & salgados #}
-<section class="mt-3 pt-2 pb-1 cardapio-empadas-wrapper">
-  <h2 class="text-center mb-4 text-marrom">Empadas & salgados</h2>
-
-  <div class="card empada-card mx-auto shadow-sm">
-    <img
-      src="{{ url_for('static', filename='img/empadas.jpg') }}"
-      alt="Empadas artesanais LJ Doces"
-      class="empada-img-top"
-    >
-
-    <div class="card-body">
-      <h3 class="empada-titulo">Empadas artesanais</h3>
-
-      <p>
-        Empadas preparadas uma a uma, perfeitas para festas, lanches e encomendas.
+      <p class="cardapio-lede lede" data-reveal data-reveal-delay="2">
+        Doces preparados sob encomenda com carinho, ingredientes selecionados
+        e aquela receita especial de família. Para festas, eventos e o
+        seu dia a dia.
       </p>
 
-      <ul class="empada-lista">
-        <li>Sabores a combinar (ex.: frango, frango com catupiry, queijo...)</li>
-        <li>Encomendas sob pedido, quantidade mínima a combinar.</li>
-      </ul>
+      <div class="cardapio-hero-meta" data-reveal data-reveal-delay="3">
+        <a href="#galeria" class="cardapio-jump">Galeria <span class="arrow">↓</span></a>
+        <a href="#empadas" class="cardapio-jump">Empadas <span class="arrow">↓</span></a>
+        <a href="{{ url_for('novo_pedido') }}" class="cardapio-jump cardapio-jump--accent">Fazer pedido <span class="arrow">→</span></a>
+      </div>
+    </div>
 
-      <p class="empada-destaque">
-        Consulte sabores e valores atualizados pelo WhatsApp. 💬
-      </p>
+    <aside class="cardapio-hero-aside" data-reveal data-reveal-delay="2">
+      <div class="aside-card">
+        <span class="aside-num">N° 01</span>
+        <div class="aside-divider"></div>
+        <p class="aside-text">
+          <em>Tudo</em> é feito <em>sob encomenda</em> — combine sabores,
+          datas e quantidades direto pelo WhatsApp.
+        </p>
+        <a href="https://wa.me/5511943549820" target="_blank" rel="noopener noreferrer" class="aside-link">
+          (11) 94354-9820
+        </a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+
+{# ═══════════════════════════════════════════════
+   GALERIA
+   ═══════════════════════════════════════════════ #}
+<section class="galeria" id="galeria">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="num-tag">02 / Galeria</span>
+      <h2 class="sec-title">
+        Cardápios em <em>imagem</em>
+      </h2>
+    </div>
+
+    <div class="galeria-grid">
+      <figure class="frame frame--01" data-reveal data-reveal-delay="1">
+        <header class="frame-head">
+          <span class="frame-num">N° 01</span>
+          <span class="frame-cat">Docinhos tradicionais</span>
+        </header>
+        <div class="frame-img">
+          <img
+            src="{{ url_for('static', filename='img/cardapio_doces_1.jpg') }}"
+            alt="Cardápio de docinhos LJ Doces — sabores tradicionais"
+            loading="lazy"
+          >
+          <div class="frame-corner tl"></div>
+          <div class="frame-corner tr"></div>
+          <div class="frame-corner bl"></div>
+          <div class="frame-corner br"></div>
+        </div>
+        <figcaption class="frame-caption">
+          <em>Sabores clássicos</em> · unidade, 50 e 100 unidades.
+        </figcaption>
+      </figure>
+
+      <figure class="frame frame--02" data-reveal data-reveal-delay="2">
+        <header class="frame-head">
+          <span class="frame-num">N° 02</span>
+          <span class="frame-cat">Sabores especiais</span>
+        </header>
+        <div class="frame-img">
+          <img
+            src="{{ url_for('static', filename='img/cardapio_doces_2.jpg') }}"
+            alt="Cardápio de docinhos LJ Doces — sabores especiais"
+            loading="lazy"
+          >
+          <div class="frame-corner tl"></div>
+          <div class="frame-corner tr"></div>
+          <div class="frame-corner bl"></div>
+          <div class="frame-corner br"></div>
+        </div>
+        <figcaption class="frame-caption">
+          <em>Sabores autorais</em> para montar a mesa de doces.
+        </figcaption>
+      </figure>
+
+      <figure class="frame frame--full" data-reveal data-reveal-delay="3">
+        <header class="frame-head">
+          <span class="frame-num">N° 03</span>
+          <span class="frame-cat">Sobremesas & bolos no pote</span>
+          <span class="frame-badge">Destaque</span>
+        </header>
+        <div class="frame-img">
+          <img
+            src="{{ url_for('static', filename='img/cardapio_sobremesas.jpg') }}"
+            alt="Cardápio de sobremesas e bolos no pote LJ Doces"
+            loading="lazy"
+          >
+          <div class="frame-corner tl"></div>
+          <div class="frame-corner tr"></div>
+          <div class="frame-corner bl"></div>
+          <div class="frame-corner br"></div>
+        </div>
+        <figcaption class="frame-caption">
+          <em>Sobremesas</em> individuais e para compartilhar — perfeitas para eventos.
+        </figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-{# CTA final da página #}
-<section class="cardapio-cta-final text-center text-marrom pb-3">
-  <h2 class="h5 mb-3">Ficou com vontade?</h2>
-  <p class="mb-3">
-    Veja o cardápio completo com detalhes ou já faça seu pedido pelo formulário.
-  </p>
-  <div class="d-flex flex-wrap justify-content-center gap-3">
-    <a href="{{ url_for('novo_pedido') }}" class="btn btn-marrom btn-lg">
-      Fazer pedido agora
-    </a>
-    <a href="{{ url_for('home') }}" class="btn btn-outline-marrom btn-lg">
-      Voltar para a página inicial
-    </a>
+
+{# ═══════════════════════════════════════════════
+   EMPADAS
+   ═══════════════════════════════════════════════ #}
+<section class="empadas" id="empadas">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="num-tag">03 / Salgados</span>
+      <h2 class="sec-title">
+        Empadas <em>artesanais</em>
+      </h2>
+    </div>
+
+    <article class="empada-feature" data-reveal data-reveal-delay="1">
+      <div class="empada-img">
+        <img
+          src="{{ url_for('static', filename='img/empadas.jpg') }}"
+          alt="Empadas artesanais LJ Doces"
+          loading="lazy"
+        >
+        <span class="empada-img-label">Feitas uma a uma</span>
+      </div>
+
+      <div class="empada-content">
+        <span class="empada-kicker">Salgados sob encomenda</span>
+        <h3 class="empada-title display">Empadas <em>artesanais</em></h3>
+        <p class="empada-desc">
+          Empadas preparadas uma a uma, com massa amanteigada e recheios
+          generosos. Perfeitas para festas, lanches e encomendas especiais.
+        </p>
+
+        <ul class="empada-list">
+          <li><span class="dot">●</span> Frango</li>
+          <li><span class="dot">●</span> Frango com catupiry</li>
+          <li><span class="dot">●</span> Queijo</li>
+          <li><span class="dot">●</span> Outros sabores a combinar</li>
+        </ul>
+
+        <p class="empada-note">
+          <span class="note-icon">i</span>
+          Consulte sabores e valores atualizados pelo WhatsApp.
+        </p>
+
+        <a href="https://wa.me/5511943549820" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+          Combinar pelo WhatsApp
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </article>
   </div>
 </section>
+
+
+{# ═══════════════════════════════════════════════
+   CTA FINAL
+   ═══════════════════════════════════════════════ #}
+<section class="cardapio-cta">
+  <div class="wrap">
+    <div class="cta-card" data-reveal>
+      <div class="cta-card-text">
+        <span class="num-tag">Próximo passo</span>
+        <h2 class="cta-card-h2 display">
+          Ficou com <em>vontade?</em>
+        </h2>
+        <p class="cta-card-p">
+          Faça seu pedido pelo formulário ou converse direto pelo WhatsApp.
+        </p>
+      </div>
+
+      <div class="cta-card-btns">
+        <a href="{{ url_for('novo_pedido') }}" class="btn btn--primary btn--lg">
+          Fazer pedido
+          <span class="arrow">→</span>
+        </a>
+        <a href="{{ url_for('home') }}" class="btn btn--ghost btn--lg">
+          ← Voltar
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 {% endblock %}
